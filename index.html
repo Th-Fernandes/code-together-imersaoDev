@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Together - a maior comunidade de artigos gratuitos</title>
+    
+    <link rel="sortcut icon" href="./images/main-icon.png" type="image/x-icon">
+    <!--CSS-->
+    <link rel="stylesheet" href="./styles/index.css">
+    <!--Fontes-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="">
+                <img src="./images/logo.png" alt="voltar para o menu principal">
+            </a>
+    
+            <div class="enviar-artigo">
+                <button class="default-button" onclick="modal.abrir()"> Criar artigo </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="apresentacao">
+            <div class="tecnologias-plataforma">
+                <img src="./images/js-icon.svg" alt="">
+                <img src="./images/css-header-icon.png" alt="">
+                <img src="./images/html-header-icon.png" alt="">
+            </div>
+
+            <article>
+                <h1>A maior plataforma de conteúdos front-end.</h1>
+                <p>
+                    De programadores para programadores. A sua plataforma que reune os 
+                    melhores artigos gratuitos de front-end.
+                </p>
+            </article>
+        </section>
+
+        <section class="minhas-publicacoes">
+            <h2>Minhas publicações</h2>
+
+            <div class="nenhuma-publicacao">
+                <img src="./images/html-icon.png" alt="">
+
+                <p>nenhuma publicação por aqui. clique em "criar artigo" e contribua hoje mesmo para a comunidade dev.</p>
+            </div>
+
+            <ul class="itens-populares" id="meus-artigos">
+
+            </ul>
+        </section>
+
+        <section class="mais-populares">
+            <h2>Os mais populares</h2>
+
+            <ul class="itens-populares">
+                <li class="lista-artigo lista-html ">
+                    <img src="./images/html-icon.png" alt="">
+                    
+                    <article>
+                        <h3 class="titulo-artigo">Qual é a importância de um HTML semântico?</h3>
+                        <p class="descricaoArtigo">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias voluptas iure quidem esse eaque assumenda. Et quod eos quae nihil consectetur in, dolores hic accusamus incidunt soluta sed eveniet esse.
+                        </p>
+                    </article>
+                </li>
+
+                <li class="lista-artigo lista-css ">
+                    <img src="./images/css-icon.png" alt="">
+                    
+                    <article>
+                        <h3 class="titulo-artigo">Qual é a diferença entre display inline e inline-block?</h3>
+                        <p class="descricaoArtigo">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias voluptas iure quidem esse eaque assumenda. Et quod eos quae nihil consectetur in, dolores hic accusamus incidunt soluta sed eveniet esse.
+                        </p>
+                    </article>
+                </li>
+
+                <li class="lista-artigo lista-css ">
+                    <img src="./images/css-icon.png" alt="">
+                    
+                    <article>
+                        <h3 class="titulo-artigo">Como utilizar sass em um projeto?</h3>
+                        <p class="descricaoArtigo">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias voluptas iure quidem esse eaque assumenda. Et quod eos quae nihil consectetur in, dolores hic accusamus incidunt soluta sed eveniet esse.
+                        </p>
+                    </article>
+                </li>
+
+                <li class="lista-artigo lista-js ">
+                    <img src="./images/js-icon.png" alt="">
+                    
+                    <article>
+                        <h3 class="titulo-artigo">Entenda de uma vez por todas como usar CLASS</h3>
+                        <p class="descricaoArtigo">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias voluptas iure quidem esse eaque assumenda. Et quod eos quae nihil consectetur in, dolores hic accusamus incidunt soluta sed eveniet esse.
+                        </p>
+                    </article>
+                </li>
+
+                <li class="lista-artigo lista-js ">
+                    <img src="./images/js-icon.png" alt="">
+                    
+                    <article>
+                        <h3 class="titulo-artigo">Formas de criar objetos com javascript. </h3>
+                        <p class="descricaoArtigo">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias voluptas iure quidem esse eaque assumenda. Et quod eos quae nihil consectetur in, dolores hic accusamus incidunt soluta sed eveniet esse.
+                        </p>
+                    </article>
+                </li>
+
+                <li class="lista-artigo lista-html ">
+                    <img src="./images/html-icon.png" alt="">
+                    
+                    <article>
+                        <h3 class="titulo-artigo">O uso da tag script no body da página.</h3>
+                        <p class="descricaoArtigo">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias voluptas iure quidem esse eaque assumenda. Et quod eos quae nihil consectetur in, dolores hic accusamus incidunt soluta sed eveniet esse.
+                        </p>
+                    </article>
+                </li>
+            </ul>
+        </section>
+
+        <!--MODAL-->
+        <section class="modal-overlay">
+            <div class="modal">
+                <form class="criarArtigo">
+                    <div class="marcar-tecnologia">
+                        <h2>Selecione a tecnologia do seu artigo</h2>
+                        <select name="opcoes-tecnologia" id="selecionarTecnologia">
+                            <option value="html">HTML</option>
+                            <option value="css">CSS</option>
+                            <option value="javascript">javascript</option>
+    
+                        </select>
+                    </div>
+
+                    <label for="tituloArtigo">Título do artigo</label>
+                    <input type="text" id="tituloArtigo">
+
+                    <label for="bodyArtigo">Corpo do artigo</label>
+                    <textarea  id="bodyArtigo"></textarea>
+
+                    <div class="interactive">
+                        <button type="button" class="cancelar default-button" onclick="modal.fechar()"> Cancelar </button>
+                        <button 
+                            class="default-button" 
+                            type="submit"
+                            onclick="salvarDadosArtigo.salvar(); return false;"> Enviar</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <h2>Me segue? :D</h2>
+
+            <ul class="minhas-redes">
+                <li>
+                    <a href="https://github.com/Th-Fernandes">
+                        <img src="./images/github-footer-icon.jpg" alt="meu github">
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://www.linkedin.com/in/thiago-fernandes-962351186/">
+                        <img src="./images/linkedin-footer-icon.png" alt="meu linkedIn">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="./index.js"></script>
+</body>
+</html>

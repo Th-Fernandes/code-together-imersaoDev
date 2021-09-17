@@ -1,0 +1,295 @@
+// paleta de cores
+$Cyan: hsl(176, 68%, 64%);
+$Red: hsl(0, 68%, 64%);
+$Pink:hsl(310, 68%, 64%);
+$Yellow: hsl(61, 68%, 64%);
+$Dark-Blue: hsl(218, 28%, 13%);
+$Light-Blue: #202a3c;
+$Darkest-Blue: hsl(216, 53%, 9%);
+$white: #f0f0f0;
+/* ===GLOBAL=== */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    //overflow-x: hidden;
+    font-size: 62.5%;
+
+    button.default-button {
+        width: 15rem;
+        background: $Cyan;
+        color: white;
+        padding: 1rem;
+        border: none;
+        border-radius: 1.6rem;
+        font-size: 1.4rem;
+        font-weight: 700;
+        cursor: pointer;
+    }
+
+    ul.itens-populares {
+        width: 100%;
+        display: flex;
+        justify-content:center;
+        flex-wrap: wrap;
+        margin: auto;
+
+        li.lista-css {
+            > img {
+                background-color: $Pink;
+            }
+        }
+
+        li.lista-js {
+            > img {
+                background-color: $Yellow;
+            }
+        }
+    }
+
+    li.lista-artigo {
+        width: 35rem;
+        min-height: 40rem;
+        margin: 0 2.5rem 5rem;
+        background-color: $Light-Blue;
+        padding: 2rem;
+        list-style-type: none;
+        cursor: pointer;
+        transition: .5s all;
+        
+        a, button {
+            cursor: pointer;
+        }
+
+         img {
+            display: block;
+            width: 20rem;
+            background-color: $Cyan;
+            border-radius: 50%;
+            margin: auto;
+        }
+
+        > article {
+            text-align: center;
+            margin: 2rem 0;
+
+            h3 {
+                font-size: 2rem;
+            }
+
+            p {
+                margin-top: 1rem;
+                color: rgba($white, 0.5);
+            }
+        }
+    }
+
+    li.lista-artigo:hover {
+        transform: scale(1.1);
+        filter: brightness(1.3)
+    }
+}
+
+:root {
+    font-family: 'Open Sans', sans-serif;
+}
+/* ===HEADER=== */
+body {
+    background-color: $Dark-Blue;
+    color: white;  
+
+    header {
+        background-color: $Darkest-Blue;
+
+        div.header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            width: min(144rem, 90%);
+            margin: auto;
+            padding: 3rem;
+
+            > a {
+                img {
+                    width: 25rem;
+                }
+            }
+    
+        }
+    }
+
+    main {
+        width: min(144rem, 100%);
+        margin: auto;
+
+        section.apresentacao {
+            margin: 5rem 0;
+
+            div.tecnologias-plataforma {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 3rem;
+
+                > img:not(:first-child) {
+                    margin-left: 2rem;
+                }
+            }
+
+            article {
+                text-align: center;
+                
+                margin: auto;
+
+                > h1 {
+                    font-size: 3.8rem;
+                    margin-bottom: 1rem;
+                }
+
+                > p {
+                    font-size: 1.8rem;
+                    
+                    color: rgba($white, 0.5)
+                }
+            }
+        }
+
+        section.minhas-publicacoes {
+             h2 {
+                text-align: center;
+                font-size: 3.2rem;
+                margin-bottom: 3rem;
+            }
+
+            div.nenhuma-publicacao {
+                opacity: 0.6;
+                text-align: center;
+                margin: 3rem 0;
+               
+
+                > img {
+                    background-color: $Light-Blue;
+                    border-radius: 50%;
+                    cursor: not-allowed;
+                    width: 30rem;
+                }
+
+                > p {
+                    margin-top: 2rem;
+                    font-size: 1.8rem;
+                }
+            }
+
+            ul.itens-populares {
+                flex-direction: row-reverse;
+            }
+        }
+
+        section.mais-populares {
+            h2 {
+                font-size: 3.2rem;
+                margin-bottom: 3rem;
+                text-align: center;
+            }
+        }
+
+        section.modal-overlay {
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+        }
+
+        section.modal-overlay.modal-actived {
+            background-color: rgba(black, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100vh;
+            opacity: 1;
+            visibility: visible;
+
+            div.modal {
+                padding: 4rem;
+                width: min(90rem, 90%);
+                min-height: 60rem;
+                max-height: 90rem;
+                background-color: $Dark-Blue;
+
+                form.criarArtigo {
+                    > label {
+                        display: block;
+                        border: none;
+                        margin: 1rem 0;
+                        font-size: 1.6rem;
+                    }
+
+                    input[type="text"], textarea#bodyArtigo {
+                        display: block;
+                        padding: 1rem;
+                        color: $white;
+                        border: none;
+                        background-color: $Light-Blue;
+                        width: 100%;
+                    }
+
+                   textarea#bodyArtigo {
+                        resize: none;
+                        width: 100%;
+                        min-height: 30rem;
+                    }
+
+                    div.interactive {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        margin-top: 5rem;
+
+                        > button {
+                            border-radius: 0;
+                        }
+                        button.cancelar {
+                            background: $Red;
+                        }
+                    }
+                } 
+            }
+        }
+    }
+
+    footer {
+        background: $Darkest-Blue;
+        text-align: center;
+        padding: 5rem 0;
+
+        h2 {
+            font-size: 3.2rem;
+            margin-bottom: 5rem;
+        }
+
+        div.footer-container {
+            width: min(144rem, 100%);
+            margin: auto;
+            
+            ul.minhas-redes {
+                li {
+                    list-style-type: none;
+                    display: inline-block;
+                    margin: 0 2rem;
+
+                    a {
+                        img {
+                            width: 10rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+   

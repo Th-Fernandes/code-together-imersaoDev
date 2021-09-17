@@ -1,0 +1,226 @@
+/* ===GLOBAL=== */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+html button.default-button {
+  width: 15rem;
+  background: #65e2d9;
+  color: white;
+  padding: 1rem;
+  border: none;
+  border-radius: 1.6rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+html ul.itens-populares {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: auto;
+}
+html ul.itens-populares li.lista-css > img {
+  background-color: #e265cd;
+}
+html ul.itens-populares li.lista-js > img {
+  background-color: #e0e265;
+}
+html li.lista-artigo {
+  width: 35rem;
+  min-height: 40rem;
+  margin: 0 2.5rem 5rem;
+  background-color: #202a3c;
+  padding: 2rem;
+  list-style-type: none;
+  cursor: pointer;
+  transition: 0.5s all;
+}
+html li.lista-artigo a, html li.lista-artigo button {
+  cursor: pointer;
+}
+html li.lista-artigo img {
+  display: block;
+  width: 20rem;
+  background-color: #65e2d9;
+  border-radius: 50%;
+  margin: auto;
+}
+html li.lista-artigo > article {
+  text-align: center;
+  margin: 2rem 0;
+}
+html li.lista-artigo > article h3 {
+  font-size: 2rem;
+}
+html li.lista-artigo > article p {
+  margin-top: 1rem;
+  color: rgba(240, 240, 240, 0.5);
+}
+html li.lista-artigo:hover {
+  transform: scale(1.1);
+  filter: brightness(1.3);
+}
+
+:root {
+  font-family: "Open Sans", sans-serif;
+}
+
+/* ===HEADER=== */
+body {
+  background-color: #181f2a;
+  color: white;
+}
+body header {
+  background-color: #0b1523;
+}
+body header div.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(144rem, 90%);
+  margin: auto;
+  padding: 3rem;
+}
+body header div.header-container > a img {
+  width: 25rem;
+}
+body main {
+  width: min(144rem, 100%);
+  margin: auto;
+}
+body main section.apresentacao {
+  margin: 5rem 0;
+}
+body main section.apresentacao div.tecnologias-plataforma {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+body main section.apresentacao div.tecnologias-plataforma > img:not(:first-child) {
+  margin-left: 2rem;
+}
+body main section.apresentacao article {
+  text-align: center;
+  margin: auto;
+}
+body main section.apresentacao article > h1 {
+  font-size: 3.8rem;
+  margin-bottom: 1rem;
+}
+body main section.apresentacao article > p {
+  font-size: 1.8rem;
+  color: rgba(240, 240, 240, 0.5);
+}
+body main section.minhas-publicacoes h2 {
+  text-align: center;
+  font-size: 3.2rem;
+  margin-bottom: 3rem;
+}
+body main section.minhas-publicacoes div.nenhuma-publicacao {
+  opacity: 0.6;
+  text-align: center;
+  margin: 3rem 0;
+}
+body main section.minhas-publicacoes div.nenhuma-publicacao > img {
+  background-color: #202a3c;
+  border-radius: 50%;
+  cursor: not-allowed;
+  width: 30rem;
+}
+body main section.minhas-publicacoes div.nenhuma-publicacao > p {
+  margin-top: 2rem;
+  font-size: 1.8rem;
+}
+body main section.minhas-publicacoes ul.itens-populares {
+  flex-direction: row-reverse;
+}
+body main section.mais-populares h2 {
+  font-size: 3.2rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+body main section.modal-overlay {
+  opacity: 0;
+  visibility: hidden;
+  z-index: 999;
+}
+body main section.modal-overlay.modal-actived {
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  opacity: 1;
+  visibility: visible;
+}
+body main section.modal-overlay.modal-actived div.modal {
+  padding: 4rem;
+  width: min(90rem, 90%);
+  min-height: 60rem;
+  max-height: 90rem;
+  background-color: #181f2a;
+}
+body main section.modal-overlay.modal-actived div.modal form.criarArtigo > label {
+  display: block;
+  border: none;
+  margin: 1rem 0;
+  font-size: 1.6rem;
+}
+body main section.modal-overlay.modal-actived div.modal form.criarArtigo input[type=text], body main section.modal-overlay.modal-actived div.modal form.criarArtigo textarea#bodyArtigo {
+  display: block;
+  padding: 1rem;
+  color: #f0f0f0;
+  border: none;
+  background-color: #202a3c;
+  width: 100%;
+}
+body main section.modal-overlay.modal-actived div.modal form.criarArtigo textarea#bodyArtigo {
+  resize: none;
+  width: 100%;
+  min-height: 30rem;
+}
+body main section.modal-overlay.modal-actived div.modal form.criarArtigo div.interactive {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 5rem;
+}
+body main section.modal-overlay.modal-actived div.modal form.criarArtigo div.interactive > button {
+  border-radius: 0;
+}
+body main section.modal-overlay.modal-actived div.modal form.criarArtigo div.interactive button.cancelar {
+  background: #e26565;
+}
+body footer {
+  background: #0b1523;
+  text-align: center;
+  padding: 5rem 0;
+}
+body footer h2 {
+  font-size: 3.2rem;
+  margin-bottom: 5rem;
+}
+body footer div.footer-container {
+  width: min(144rem, 100%);
+  margin: auto;
+}
+body footer div.footer-container ul.minhas-redes li {
+  list-style-type: none;
+  display: inline-block;
+  margin: 0 2rem;
+}
+body footer div.footer-container ul.minhas-redes li a img {
+  width: 10rem;
+}
+
+/*# sourceMappingURL=index.css.map */
