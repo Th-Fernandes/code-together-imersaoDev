@@ -52,6 +52,11 @@ html li.lista-artigo img {
   border-radius: 50%;
   margin: auto;
 }
+html li.lista-artigo img.fechar-artigo {
+  display: inline-block;
+  width: 3rem;
+  margin-bottom: 2rem;
+}
 html li.lista-artigo > article {
   text-align: center;
   margin: 2rem 0;
@@ -96,7 +101,7 @@ body main {
   margin: auto;
 }
 body main section.apresentacao {
-  margin: 5rem 0;
+  margin: 10rem 0;
 }
 body main section.apresentacao div.tecnologias-plataforma {
   display: flex;
@@ -117,6 +122,9 @@ body main section.apresentacao article > h1 {
 body main section.apresentacao article > p {
   font-size: 1.8rem;
   color: rgba(240, 240, 240, 0.5);
+}
+body main section.minhas-publicacoes {
+  margin: 15rem 0;
 }
 body main section.minhas-publicacoes h2 {
   text-align: center;
@@ -221,6 +229,33 @@ body footer div.footer-container ul.minhas-redes li {
 }
 body footer div.footer-container ul.minhas-redes li a img {
   width: 10rem;
+}
+
+@media (max-width: 830px) {
+  main section.apresentacao div.tecnologias-plataforma img {
+    width: 15rem;
+  }
+  main section.apresentacao div.tecnologias-plataforma img {
+    width: 10rem;
+  }
+  main section.mais-populares ul.itens-populares {
+    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    justify-content: start;
+  }
+}
+@media (max-width: 500px) {
+  body header div.header-container {
+    flex-wrap: wrap;
+  }
+  body header div.header-container > a {
+    width: 100%;
+    text-align: center;
+  }
+  body header div.header-container div.enviar-artigo {
+    margin: auto;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */
