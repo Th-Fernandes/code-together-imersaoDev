@@ -1,72 +1,129 @@
-// funcionalidade de abrir e fechar o modal
+// funcionalidade de abrir e fechar o modal criador de artigo
 const modal = {
     abrir() {
         document.querySelector('.modal-overlay').classList.add('modal-actived')
     },
 
     fechar() {
-        document.querySelector('.modal-overlay').classList.remove('modal-actived')
+       const modals = document.querySelectorAll('.modal-overlay')
+       
+       for(let i = 0; i < modals.length; i++) {
+        modals[i].classList.remove('modal-actived')
+       }
+    },
+
+    ampliar() {
+        document.querySelector('.modal-overlay.modal-ampliar').classList.add('modal-actived');
+    },
+    //mostra os dados do artigo no modal de ampliar o artigo.
+    imprimirArtigo(titulo, corpo) {
+        const tituloArtigo = document.querySelector('.modal__titulo');
+        const corpoArtigo = document.querySelector('.modal__artigo');
     }
 }
 
+
+const artigos = {
+   lista: [],
+   ampliar() {
+
+   }
+}
+
 const salvarDadosArtigo = {
+    index: 0,
+
     salvar() {
+        //salva o titulo e o corpo do artigo criado
         const salvarTitulo = document.querySelector('#tituloArtigo').value
         const salvarCorpo = document.querySelector('#bodyArtigo').value
 
+        //verifica se algum campo está vazio, e n deixa enviar o artigo caso esteja.
+        if( salvarTitulo == "" || salvarCorpo == "") {
+            return alert('não é possível enviar seu artigo. confira todas as informações e veja se não está faltando nada.')
+        }
+        //seleciona a tecnoligia (tema) do artigo
         const tecnologiaEscolhida = document.querySelector('#selecionarTecnologia').value
+        //mandando os dados para poder imprimir o artigo no modal de ampliar artigo
+        modal.imprimirArtigo(salvarTitulo, salvarCorpo)
+        // cria uma chave unica para imprimir posteriormente o artigo no modal ampliado
+        this.index++
+        const criarChave = 'artigo' + this.index
 
-        let printarNaTela;
+        let arrayIndex = 0
 
-        if(tecnologiaEscolhida == 'html') {
-            printarNaTela = `
-            <li class="lista-artigo lista-html ">
-            <img src="./images/html-icon.png" alt="">
+        artigos.lista.push({
+            titulo: salvarTitulo, 
+            corpo: salvarCorpo, 
+            chave: criarChave, 
+
+            ampliar(){
+
+                const tituloArtigo = document.querySelector('.modal__titulo');
+                const corpoArtigo = document.querySelector('.modal__artigo');
             
-            <article>
-                <h3 class="titulo-artigo">${salvarTitulo}</h3>
-                <p class="descricaoArtigo">
-                    ${salvarCorpo}
-                </p>
-            </article>
-             </li> 
-             ` 
-        } else if (tecnologiaEscolhida == 'css') {
-            printarNaTela = `
-            <li class="lista-artigo lista-css ">
-            <img src="./images/css-icon.png" alt="">
-            
-            <article>
-                <h3 class="titulo-artigo">${salvarTitulo}</h3>
-                <p class="descricaoArtigo">
-                    ${salvarCorpo}
-                </p>
-            </article>
-             </li> 
-             ` 
-        } else if (tecnologiaEscolhida == 'javascript') {
-            printarNaTela = `
-            <li class="lista-artigo lista-js">
-            <img src="./images/js-icon.png" alt="">
-            
-            <article>
-                <h3 class="titulo-artigo">${salvarTitulo}</h3>
-                <p class="descricaoArtigo">
-                    ${salvarCorpo}
-                </p>
-            </article>
-             </li> 
-             `
+                const botaoAmpliar = document.querySelector(`#artigo${arrayIndex + 1}`).addEventListener("click" , () => {
+                    modal.ampliar()
+                    tituloArtigo.innerText = artigos.lista[arrayIndex].titulo
+                    corpoArtigo.innerText = artigos.lista[arrayIndex].corpo
+                })
+
+               arrayIndex++    
+        } 
+    })
+    
+        return {tecnologia: tecnologiaEscolhida ,title: salvarTitulo, body: salvarCorpo}
+    },
+
+    retomarValorInicial() {
+        const nenhumaPublicacao = document.querySelector('.nenhuma-publicacao')
+
+        if(nenhumaPublicacao.style.display != "none") {
+            nenhumaPublicacao.style.display = "none"
+        }
+        // limpa os inputs de título e corpo
+        document.querySelector('#tituloArtigo').value = ""
+        document.querySelector('#bodyArtigo').value = ""
+    },
+
+    imprimir({tecnologia ,title: titulo, body: corpo}) {
+    
+        let estiloArtigo = { classe: undefined, imagem: undefined }
+
+        if(tecnologia == 'html') {
+           estiloArtigo = { classe: 'lista-html', imagem: 'html-icon.png' }
+        } else if (tecnologia == 'css') {
+            estiloArtigo = { classe: 'lista-css', imagem: 'css-icon.png' }
+        } else if (tecnologia == 'javascript') {
+            estiloArtigo = { classe: 'lista-js', imagem: 'js-icon.png' }
         }
 
-       
+        let  printarNaTela = `
+        <li class="lista-artigo ${estiloArtigo.classe} " >
+        <img  onclick="fecharJanela" class="fechar-artigo" src="./images/fechar-artigo.png" alt="">
+        <img id="${artigos.lista[artigos.lista.length - 1].chave}"  src="./images/${estiloArtigo.imagem}" alt="">
+        
+        <article>
+            <h3 class="titulo-artigo">${titulo}</h3>
+            <p class="descricaoArtigo">
+                ${corpo}
+            </p>
+        </article>
+         </li> 
+         `   
         let mostrarNaTela = document.querySelector('#meus-artigos')
         mostrarNaTela.innerHTML  = mostrarNaTela.innerHTML + printarNaTela
 
-        const nenhumaPublicacao = document.querySelector('.nenhuma-publicacao').style.display = 'none'
+        artigos.ampliar()
 
         modal.fechar()
-
+        salvarDadosArtigo.retomarValorInicial()
         return mostrarNaTela
     }
+}
+
+function fecharJanela() {
+    const selecionarArtigo =  document.querySelector('.excluir-artigo')
+
+    selecionarArtigo.style.display = "none"
 }

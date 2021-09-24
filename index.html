@@ -63,7 +63,7 @@
 
             <ul class="itens-populares">
                 <li class="lista-artigo lista-html ">
-                    <img src="./images/html-icon.png" alt="">
+                    <img onclick="modal.ampliar()" class="image-article" src="./images/html-icon.png" alt="">
                     
                     <article>
                         <h3 class="titulo-artigo">Qual é a importância de um HTML semântico?</h3>
@@ -130,8 +130,8 @@
             </ul>
         </section>
 
-        <!--MODAL-->
-        <section class="modal-overlay">
+        <!--MODAL de criação de artigo-->
+        <section class="modal-overlay modal-artigo">
             <div class="modal">
                 <form class="criarArtigo">
                     <div class="marcar-tecnologia">
@@ -155,17 +155,31 @@
                         <button 
                             class="default-button" 
                             type="submit"
-                            onclick="salvarDadosArtigo.salvar(); return false;"> Enviar</button>
+                            onclick="salvarDadosArtigo.imprimir(salvarDadosArtigo.salvar()); return false;"> Enviar</button>
                     </div>
                 </form>
+            </div>
+        </section>
+
+        <!--MODAL para ampliar o artigo-->
+        <section class="modal-overlay modal-ampliar">
+            <div class="modal">
+                <h2 class="modal__titulo"></h2>
+                <p class="modal__artigo"></p>
+
+                <div class="interactive">
+                    <button type="button" class="cancelar default-button" onclick="modal.fechar()"> Cancelar </button>
+                    <button 
+                        class="default-button" 
+                        type="submit"
+                        onclick="salvarDadosArtigo.imprimir(salvarDadosArtigo.salvar()); return false;"> Enviar</button>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="footer-container">
-            <h2>Me segue? :D</h2>
-
             <ul class="minhas-redes">
                 <li>
                     <a href="https://github.com/Th-Fernandes">

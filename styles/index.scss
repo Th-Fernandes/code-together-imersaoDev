@@ -99,6 +99,21 @@ html {
     }
 }
 
+    
+div.interactive {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 5rem;
+
+    > button {
+        border-radius: 0;
+    }
+    button.cancelar {
+        background: $Red;
+    }
+}
+
 :root {
     font-family: 'Open Sans', sans-serif;
 }
@@ -227,7 +242,8 @@ body {
                 padding: 4rem;
                 width: min(90rem, 90%);
                 min-height: 60rem;
-                max-height: 90rem;
+                max-height: 120rem;
+                overflow-y: scroll;
                 background-color: $Dark-Blue;
 
                 form.criarArtigo {
@@ -251,20 +267,6 @@ body {
                         resize: none;
                         width: 100%;
                         min-height: 30rem;
-                    }
-
-                    div.interactive {
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-between;
-                        margin-top: 5rem;
-
-                        > button {
-                            border-radius: 0;
-                        }
-                        button.cancelar {
-                            background: $Red;
-                        }
                     }
                 } 
             }

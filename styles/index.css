@@ -73,6 +73,19 @@ html li.lista-artigo:hover {
   filter: brightness(1.3);
 }
 
+div.interactive {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 5rem;
+}
+div.interactive > button {
+  border-radius: 0;
+}
+div.interactive button.cancelar {
+  background: #e26565;
+}
+
 :root {
   font-family: "Open Sans", sans-serif;
 }
@@ -175,7 +188,8 @@ body main section.modal-overlay.modal-actived div.modal {
   padding: 4rem;
   width: min(90rem, 90%);
   min-height: 60rem;
-  max-height: 90rem;
+  max-height: 120rem;
+  overflow-y: scroll;
   background-color: #181f2a;
 }
 body main section.modal-overlay.modal-actived div.modal form.criarArtigo > label {
@@ -196,18 +210,6 @@ body main section.modal-overlay.modal-actived div.modal form.criarArtigo textare
   resize: none;
   width: 100%;
   min-height: 30rem;
-}
-body main section.modal-overlay.modal-actived div.modal form.criarArtigo div.interactive {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 5rem;
-}
-body main section.modal-overlay.modal-actived div.modal form.criarArtigo div.interactive > button {
-  border-radius: 0;
-}
-body main section.modal-overlay.modal-actived div.modal form.criarArtigo div.interactive button.cancelar {
-  background: #e26565;
 }
 body footer {
   background: #0b1523;
