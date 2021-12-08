@@ -7,6 +7,17 @@ $Dark-Blue: hsl(218, 28%, 13%);
 $Light-Blue: #202a3c;
 $Darkest-Blue: hsl(216, 53%, 9%);
 $white: #f0f0f0;
+//animations
+@keyframes left {
+    from {
+        left: 200px;
+    }
+
+    to {
+        left: 0;
+    }
+}
+
 /* ===GLOBAL=== */
 * {
     padding: 0;
@@ -155,6 +166,22 @@ body {
                 display: flex;
                 justify-content: center;
                 margin-bottom: 3rem;
+
+                > img {
+                    position: relative;
+                }
+
+                > img:first-child {
+                    animation: left 1s;
+                }
+
+                > img:nth-child(2) {
+                    animation: left 1.25s;
+                }
+
+                > img:last-child {
+                    animation: left 1.5s;
+                }
 
                 > img:not(:first-child) {
                     margin-left: 2rem;

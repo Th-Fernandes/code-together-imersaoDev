@@ -1,3 +1,11 @@
+@keyframes left {
+  from {
+    left: 200px;
+  }
+  to {
+    left: 0;
+  }
+}
 /* ===GLOBAL=== */
 * {
   padding: 0;
@@ -120,6 +128,18 @@ body main section.apresentacao div.tecnologias-plataforma {
   display: flex;
   justify-content: center;
   margin-bottom: 3rem;
+}
+body main section.apresentacao div.tecnologias-plataforma > img {
+  position: relative;
+}
+body main section.apresentacao div.tecnologias-plataforma > img:first-child {
+  animation: left 1s;
+}
+body main section.apresentacao div.tecnologias-plataforma > img:nth-child(2) {
+  animation: left 1.25s;
+}
+body main section.apresentacao div.tecnologias-plataforma > img:last-child {
+  animation: left 1.5s;
 }
 body main section.apresentacao div.tecnologias-plataforma > img:not(:first-child) {
   margin-left: 2rem;

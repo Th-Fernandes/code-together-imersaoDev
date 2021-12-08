@@ -1,6 +1,4 @@
-const salvarDadosArtigo = {
-    index: 0,
- 
+const artigo = {
     salvar() {
         //salva o titulo e o corpo do artigo criado
         const salvarTitulo = document.querySelector('#tituloArtigo').value
@@ -50,22 +48,38 @@ const salvarDadosArtigo = {
         let mostrarNaTela = document.querySelector('#meus-artigos')
         mostrarNaTela.innerHTML += printarNaTela
 
-        const excluirArtigo = document.querySelector('#excluirArtigo')
-        excluirArtigo.addEventListener('click', (event) => {
-            event.target.parentElement.remove()
-        })
+        artigo.excluir()
 
-        salvarDadosArtigo.retomarValorInicial()
+        this.retomarValorInicial()
         return mostrarNaTela
+     },
+
+     excluir() {
+        const excluirArtigo = document.querySelectorAll('#excluirArtigo')
+
+        for(let artigos of excluirArtigo) {
+            artigos.addEventListener('click', (event) => {
+                event.target.parentElement.remove()
+    
+                const nenhumaPublicacao = document.querySelector('.nenhuma-publicacao')
+                const listaArtigos = document.querySelector('#meus-artigos')
+    
+                if(listaArtigos.children.length == 0) {
+                    console.log
+                    nenhumaPublicacao.style.display = "block"
+                }
+            })
+        }
      },
 
      click() {
         const botão = document.querySelector('#enviarArtigo')
         botão.addEventListener('click', (event) => {
             event.preventDefault()
-            salvarDadosArtigo.imprimir(salvarDadosArtigo.salvar())
+
+            this.imprimir(this.salvar())
         })
      }
- }
+}
 
- export { salvarDadosArtigo }
+ export { artigo }

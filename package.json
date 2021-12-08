@@ -4,6 +4,7 @@
   "description": "esse projeto faz parte do desafio da imersaoDev.",
   "main": "index.js",
   "type": "module",
+  "repository": "https://github.com/Th-Fernandes/code-together-imersaoDev",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
